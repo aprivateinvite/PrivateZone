@@ -97,10 +97,10 @@
   function redirectUser() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    fetch('https://ipapi.co/json/')
+    fetch('https://ipinfo.io/json?token=af2937192259d9')
       .then(response => response.json())
       .then(data => {
-        const country = data.country_name;
+        const country = data.country;
 
         // Evento personalizado no Analytics
         gtag('event', 'click_offer_button', {
@@ -112,12 +112,11 @@
         const linkUS = 'https://t.mbdaad.link/205192/8517/0?aff_sub5=SF_006OG000004lmDN';
         const linkGlobal = 'https://t.mbdaad.link/205192/3785/0?target=domainredirects&aff_sub5=SF_006OG000004lmDN';
 
-        if (country === 'United States') {
+        if (country === 'US') {
           window.location.href = linkUS;
         } else {
           window.location.href = linkGlobal;
         }
-
       })
       .catch(error => {
         console.error('Erro ao buscar localização', error);
