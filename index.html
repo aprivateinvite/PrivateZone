@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Exclusive 18+ Offer</title>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0BVPQ1ETG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -15,6 +14,7 @@
   </script>
 
   <style>
+    /* Reset e Configurações Globais */
     * {
       margin: 0;
       padding: 0;
@@ -23,19 +23,22 @@
     body, html {
       height: 100%;
       font-family: 'Arial', sans-serif;
+      overflow: hidden; /* Impede a rolagem da página */
     }
+
+    /* Fundo e Overlay */
     .background {
-  background: url('https://raw.githubusercontent.com/S4rtoriocf/PrivateZone/main/fotos/Private01.jpeg') no-repeat center center fixed;
-  background-size: cover;
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  z-index: -1;
+      background: url('https://raw.githubusercontent.com/S4rtoriocf/PrivateZone/main/fotos/Private01.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      filter: blur(8px);
+      -webkit-filter: blur(8px);
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
     }
     .overlay {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.4); /* Levemente mais claro */
       position: absolute;
       top: 0;
       left: 0;
@@ -43,42 +46,103 @@
       width: 100%;
       z-index: 0;
     }
-    .content {
+
+    /* Container principal para posicionamento */
+    .content-container {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
+      justify-content: flex-end; /* Alinha o cartão na parte inferior */
+      align-items: flex-start; /* Alinha o cartão à esquerda */
       height: 100vh;
+      padding: 5vw; /* Padding responsivo */
+    }
+
+    /* Cartão com efeito de vidro */
+    .content-card {
+      background: rgba(20, 20, 20, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      max-width: 500px;
+      text-align: left;
+      animation: slideUp 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Estilos do Texto */
+    .content-card h1 {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      line-height: 1.2;
       color: #fff;
-      padding: 20px;
     }
-    .content h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
+    .phrase {
+      font-size: 20px;
+      font-weight: 300;
+      margin-bottom: 35px;
+      line-height: 1.6;
+      min-height: 64px; /* Evita "saltos" no layout */
+      color: #e0e0e0;
     }
-    .content p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+
+    /* Estilos do Botão */
     .btn {
       background-color: #ff3c3c;
       color: #fff;
-      padding: 16px 30px;
+      padding: 18px 30px;
       border: none;
       border-radius: 30px;
       text-decoration: none;
       font-size: 20px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.3s ease-in-out;
+      transition: all 0.3s ease-in-out;
       box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
+      text-align: center;
+      display: block;
+      width: 100%;
     }
     .btn:hover {
       background-color: #e63333;
       transform: scale(1.05);
-      box-shadow: 0 0 30px rgba(255, 60, 60, 0.8);
+      box-shadow: 0 0 35px rgba(255, 60, 60, 0.8);
+    }
+
+    /* Responsividade para telas menores */
+    @media (max-width: 600px) {
+      .content-container {
+        padding: 20px;
+        justify-content: flex-end;
+        align-items: stretch;
+      }
+      .content-card {
+        padding: 30px;
+        width: 100%;
+        max-width: none;
+      }
+      .content-card h1 {
+        font-size: 34px;
+      }
+      .phrase {
+        font-size: 18px;
+      }
     }
   </style>
 </head>
@@ -87,13 +151,39 @@
 <div class="background"></div>
 <div class="overlay"></div>
 
-<div class="content">
-  <h1>“You saw me on Twitter… ready for more?”</h1>
-  <p>I teased you for a reason. If you're bold enough… tap below and don’t look back.</p>
-  <button class="btn" onclick="redirectUser()">Sign Up For Free</button>
+<div class="content-container">
+  <div class="content-card">
+    <h1>“You saw me on Twitter… ready for more?”</h1>
+    <div id="phrase" class="phrase"></div>
+    <button class="btn" onclick="redirectUser()">Sign Up For Free</button>
+  </div>
 </div>
 
 <script>
+  // --- Início da funcionalidade de frases rotativas ---
+  const phrases = [
+    "Forget swiping right...<br>Feel real touch.",
+    "It starts with a spark...<br>and ends with a real connection.",
+    "The conversation is just the beginning.<br>The night is what matters.",
+    "Your imagination is the limit.<br>And today, we're going to push it.",
+    "Tired of just talking?<br>Show me what you really want.",
+    "He wasn’t her first...<br>but he might be the last she’ll want."
+  ];
+
+  let phraseIndex = 0;
+  const phraseElement = document.getElementById("phrase");
+
+  function rotatePhrase() {
+    if (phraseElement) {
+        phraseElement.innerHTML = phrases[phraseIndex];
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+  }
+
+  rotatePhrase();
+  setInterval(rotatePhrase, 5000);
+  // --- Fim da funcionalidade de frases rotativas ---
+
   function redirectUser() {
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -102,13 +192,11 @@
       .then(data => {
         const country = data.country;
 
-        // Evento personalizado no Analytics
         gtag('event', 'click_offer_button', {
           'event_category': isMobile ? 'Mobile' : 'Desktop',
           'event_label': country
         });
 
-        // Links de redirecionamento
         const linkUS = 'https://bggcgce.pixloffrs.com/s/59cd6ef16fd92';
         const linkGlobal = 'https://bggcgce.pixloffrs.com/s/59cd6ef16fd92';
 
@@ -120,7 +208,6 @@
       })
       .catch(error => {
         console.error('Erro ao buscar localização', error);
-        // Caso falhe, redireciona pro link global
         window.location.href = 'https://bggcgce.pixloffrs.com/s/59cd6ef16fd92';
       });
   }
