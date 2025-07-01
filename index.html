@@ -38,7 +38,7 @@
       z-index: -1;
     }
     .overlay {
-      background: rgba(0, 0, 0, 0.4); /* Levemente mais claro */
+      background: rgba(0, 0, 0, 0.4);
       position: absolute;
       top: 0;
       left: 0;
@@ -53,10 +53,10 @@
       z-index: 1;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end; /* Alinha o cartão na parte inferior */
-      align-items: flex-start; /* Alinha o cartão à esquerda */
+      justify-content: center; /* <<< ALTERADO: Centraliza na vertical */
+      align-items: center;   /* <<< ALTERADO: Centraliza na horizontal */
       height: 100vh;
-      padding: 5vw; /* Padding responsivo */
+      padding: 20px; /* Adiciona um padding para segurança em telas pequenas */
     }
 
     /* Cartão com efeito de vidro */
@@ -69,19 +69,20 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
       max-width: 500px;
+      width: 100%; /* Faz o card ocupar a largura máxima disponível (respeitando o max-width) */
       text-align: left;
-      animation: slideUp 1s ease-out forwards;
+      animation: fadeIn 1s ease-out forwards; /* Animação mais sutil */
       opacity: 0;
     }
 
-    @keyframes slideUp {
+    @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: scale(0.95);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
       }
     }
 
@@ -127,15 +128,8 @@
 
     /* Responsividade para telas menores */
     @media (max-width: 600px) {
-      .content-container {
-        padding: 20px;
-        justify-content: flex-end;
-        align-items: stretch;
-      }
       .content-card {
         padding: 30px;
-        width: 100%;
-        max-width: none;
       }
       .content-card h1 {
         font-size: 34px;
