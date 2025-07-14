@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Private Zone 18+ Offer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Next Connection Awaits</title>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0BVPQ1ETG"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -14,13 +13,17 @@
     gtag('config', 'G-G0BVPQ1ETG');
   </script>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body, html {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
       height: 100%;
-      font-family: 'Arial', sans-serif;
+      font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
       overflow: hidden;
     }
 
@@ -38,7 +41,7 @@
     }
 
     .overlay {
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0,0,0,0.6);
       position: fixed;
       top: 0;
       left: 0;
@@ -47,69 +50,95 @@
       z-index: -1;
     }
 
-    .content-container {
+    .content-wrapper {
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-in-out;
+      max-width: 90%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
-      padding: 20px;
-    }
-
-    .content-card {
-      background: rgba(20, 20, 20, 0.65);
-      backdrop-filter: blur(12px);
-      border-radius: 20px;
-      padding: 40px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.37);
-      max-width: 500px;
-      width: 100%;
-      text-align: left;
-      animation: fadeIn 1s ease-out forwards;
-      animation-delay: 0.5s;
-      opacity: 0;
+      justify-content: center;
+      gap: 20px;
+      color: #e0e0e0;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    .content-card h1 { font-size: 42px; color: #fff; margin-bottom: 15px; }
+    h1 {
+      font-size: 48px;
+      font-weight: 700;
+      color: #00BFFF;
+      text-shadow: 0 0 15px rgba(0,191,255,0.7);
+    }
+
     .phrase {
-      font-size: 20px;
-      margin-bottom: 35px;
-      color: #e0e0e0;
-      min-height: 64px;
+      font-size: 22px;
+      font-weight: 300;
+      min-height: 60px;
+      color: #c5c5c5;
     }
 
-    .btn {
-      background-color: #ff3c3c;
+    .count-section {
+      background: rgba(0,0,0,0.6);
+      border-radius: 10px;
+      padding: 15px 20px;
+      box-shadow: 0 0 15px rgba(0,191,255,0.3);
+      border: 1px solid rgba(0,191,255,0.5);
+    }
+
+    .count-section p {
+      font-size: 18px;
+      font-weight: bold;
       color: #fff;
-      padding: 18px 30px;
-      border: none;
-      border-radius: 30px;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
-      display: block;
-      width: 100%;
-      text-align: center;
+      margin: 0;
     }
 
-    .btn:hover {
-      background-color: #e63333;
-      transform: scale(1.05);
+    .count-number {
+      color: #00BFFF;
+      font-size: 28px;
+      font-weight: 900;
+      text-shadow: 0 0 8px rgba(0,191,255,0.8);
+    }
+
+    .cta-button {
+      background: #00BFFF;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 20px 45px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 0 25px rgba(0,191,255,0.5), inset 0 0 12px rgba(255,255,255,0.2);
+      animation: pulse 2s infinite;
+      white-space: nowrap;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cta-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 45px rgba(0,191,255,0.9), inset 0 0 18px rgba(255,255,255,0.4);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 25px rgba(0,191,255,0.5); }
+      50% { transform: scale(1.03); box-shadow: 0 0 40px rgba(0,191,255,0.8); }
+      100% { transform: scale(1); box-shadow: 0 0 25px rgba(0,191,255,0.5); }
     }
 
     #preloader {
       position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:#000;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #000;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -118,7 +147,7 @@
 
     .loader {
       border: 6px solid #f3f3f3;
-      border-top: 6px solid #ff3c3c;
+      border-top: 6px solid #00BFFF;
       border-radius: 50%;
       width: 50px;
       height: 50px;
@@ -135,8 +164,9 @@
 
 <div id="preloader"><div class="loader"></div></div>
 
-<div class="swiper mySwiper">
+<div class="swiper">
   <div class="swiper-wrapper">
+    <!-- Substitua abaixo as imagens pelas suas, mantendo os nomes ou caminhos -->
     <div class="swiper-slide"><img src="https://raw.githubusercontent.com/aprivateinvite/PrivateZone/refs/heads/main/fotos/Private01.jpeg" loading="lazy" alt="Slide 1"></div>
     <div class="swiper-slide"><img src="https://raw.githubusercontent.com/aprivateinvite/PrivateZone/refs/heads/main/fotos/Privates02.jpeg" loading="lazy" alt="Slide 2"></div>
     <div class="swiper-slide"><img src="https://raw.githubusercontent.com/aprivateinvite/PrivateZone/refs/heads/main/fotos/Privates03.jpeg" loading="lazy" alt="Slide 3"></div>
@@ -146,46 +176,58 @@
 
 <div class="overlay"></div>
 
-<div class="content-container">
-  <div class="content-card">
-    <h1>“You saw me on Twitter… ready for more?”</h1>
-    <div id="phrase" class="phrase"></div>
-    <button class="btn" onclick="redirectUser()">Sign Up For Free</button>
+<div class="content-wrapper">
+  <h1>Your Next Connection Awaits!</h1>
+  <p id="phrase" class="phrase"></p>
+
+  <div class="count-section">
+    <p><span id="girls-count" class="count-number">3000+</span> women active!</p>
   </div>
+  <div class="count-section">
+    <p><span id="nearby-count" class="count-number">0</span> people ready NOW!</p>
+  </div>
+
+  <a href="https://bggcgce.pixloffrs.com/s/59cd6ef16fd92" class="cta-button">Join Now!</a>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  window.addEventListener("load", () => {
-    document.getElementById("preloader").style.display = "none";
+  window.addEventListener("load", () => { 
+    document.getElementById("preloader").style.display = "none"; 
   });
 
-  var swiper = new Swiper(".mySwiper", {
+  var swiper = new Swiper(".swiper", {
     effect: "fade",
     loop: true,
     autoplay: { delay: 4000, disableOnInteraction: false },
-    speed: 1000
+    speed: 1000,
   });
 
   const phrases = [
-    "Forget swiping right...<br>Feel real touch.",
-    "It starts with a spark...<br>and ends with a real connection.",
-    "The conversation is just the beginning.<br>The night is what matters."
+    "It all starts with a simple 'hey'.",
+    "Talk all night. Stay for breakfast.",
+    "Less routine. More adventure.",
+    "Find someone who truly gets you."
   ];
-  let i=0;
-  function rotatePhrase(){
-    document.getElementById("phrase").innerHTML=phrases[i];
-    i=(i+1)%phrases.length;
+
+  let phraseIndex = 0;
+  const phraseElement = document.getElementById("phrase");
+  function rotatePhrase() {
+    phraseElement.innerHTML = phrases[phraseIndex];
+    phraseIndex = (phraseIndex + 1) % phrases.length;
   }
   rotatePhrase();
-  setInterval(rotatePhrase,5000);
+  setInterval(rotatePhrase, 5000);
 
-  function redirectUser(){
-    fetch('https://ipinfo.io/json?token=af2937192259d9')
-      .then(res=>res.json())
-      .then(data=>window.location.href='https://bggcgce.pixloffrs.com/s/59cd6ef16fd92')
-      .catch(()=>window.location.href='https://bggcgce.pixloffrs.com/s/59cd6ef16fd92');
+  const nearbyCountElement = document.getElementById('nearby-count');
+  let currentNearbyCount = 250;
+  function updateNearbyCount() {
+    let change = Math.floor(Math.random() * 10) - 4;
+    currentNearbyCount = Math.min(350, Math.max(200, currentNearbyCount + change));
+    nearbyCountElement.textContent = currentNearbyCount;
   }
+  setInterval(updateNearbyCount, 1500);
 </script>
+
 </body>
 </html>
