@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Private Zone 18+ Offer</title>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0BVPQ1ETG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G0BVPQ1ETG');
+  </script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html {
+      height: 100%;
+      font-family: 'Arial', sans-serif;
+      overflow: hidden;
+    }
+
+    .swiper {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -2;
+    }
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.4);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+    }
+
+    .content-container {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding: 20px;
+    }
+
+    .content-card {
+      background: rgba(20, 20, 20, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+      max-width: 500px;
+      width: 100%;
+      text-align: left;
+      animation: fadeIn 1s ease-out forwards;
+      animation-delay: 0.5s;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .content-card h1 { font-size: 42px; color: #fff; margin-bottom: 15px; }
+    .phrase {
+      font-size: 20px;
+      margin-bottom: 35px;
+      color: #e0e0e0;
+      min-height: 64px;
+    }
+
+    .btn {
+      background-color: #ff3c3c;
+      color: #fff;
+      padding: 18px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 60, 60, 0.6);
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #e63333;
+      transform: scale(1.05);
+    }
+
+    #preloader {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:#000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #ff3c3c;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="preloader"><div class="loader"></div></div>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide"><img src="fotos/Private01.jpeg" loading="lazy" alt="Slide 1"></div>
+    <div class="swiper-slide"><img src="fotos/Private02.jpeg" loading="lazy" alt="Slide 2"></div>
+    <div class="swiper-slide"><img src="fotos/Private03.jpeg" loading="lazy" alt="Slide 3"></div>
+  </div>
+</div>
+
+<div class="overlay"></div>
+
+<div class="content-container">
+  <div class="content-card">
+    <h1>“You saw me on Twitter… ready for more?”</h1>
+    <div id="phrase" class="phrase"></div>
+    <button class="btn" onclick="redirectUser()">Sign Up For Free</button>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  window.addEventListener("load", () => {
+    document.getElementById("preloader").style.display = "none";
+  });
+
+  var swiper = new Swiper(".mySwiper", {
+    effect: "fade",
+    loop: true,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    speed: 1000
+  });
+
+  const phrases = [
+    "Forget swiping right...<br>Feel real touch.",
+    "It starts with a spark...<br>and ends with a real connection.",
+    "The conversation is just the beginning.<br>The night is what matters."
+  ];
+  let i=0;
+  function rotatePhrase(){
+    document.getElementById("phrase").innerHTML=phrases[i];
+    i=(i+1)%phrases.length;
+  }
+  rotatePhrase();
+  setInterval(rotatePhrase,5000);
+
+  function redirectUser(){
+    fetch('https://ipinfo.io/json?token=af2937192259d9')
+      .then(res=>res.json())
+      .then(data=>window.location.href='https://bggcgce.pixloffrs.com/s/59cd6ef16fd92')
+      .catch(()=>window.location.href='https://bggcgce.pixloffrs.com/s/59cd6ef16fd92');
+  }
+</script>
+</body>
+</html>
